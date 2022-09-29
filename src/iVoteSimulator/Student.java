@@ -6,14 +6,12 @@ public class Student {
 	private int ID;
 	private String Answer;
 	
-
 	
-	
-	
-	public Student(int iD, String answer) {
-		ID = iD;
-		Answer = answer;
+	public Student(int id, String ans) {
+		ID = id;
+		Answer = ans;
 	}
+	
 	
 	public int getID() {
 		return ID;
@@ -24,13 +22,18 @@ public class Student {
 	public String getAnswer() {
 		return Answer;
 	}
-	public void setAnswer(String Answer) {
-		this.Answer = Answer;
+	public void setAnswer(String answer) {
+		Answer = answer;
 	}
 	
 	
 	
+
 	
+
+	
+	
+
 
 
 }

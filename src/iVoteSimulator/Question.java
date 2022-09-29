@@ -9,7 +9,7 @@ public interface Question {
 	
 	public static final String[] m_question = {"Which are your favorite tree traversals?", 
 			"Do you prefer Top-down (memoization) or Bottom-up (tabulation)?"};
-	public static final String[][] m_answers = {{"A. Pre-order","B. In-order","C. Post-order"},
+	public static final String[][] m_answers = {{"A. Pre-order","B. In-order","C. Post-order", "D. All three!"},
 			{"A. Top-down","B. Bottom-up", "C. I hate DP problems"}};
 	
 	
