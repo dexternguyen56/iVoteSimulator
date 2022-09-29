@@ -1,17 +1,19 @@
 package iVoteSimulator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class MultipleChoiceQuestion implements Question {
+public class SingleChoiceQuestion implements Question {
 	
 	private String[] answers;
 	private String question;
 	
-	public MultipleChoiceQuestion(int key) {
+	public SingleChoiceQuestion(int key) {
 		// TODO Auto-generated constructor stub
-		answers = m_answers[key];
-		question = m_question[key];
+		answers = s_answers[key];
+		question = s_question[key];
 	}
+
 
 	@Override
 	public String[] getAnswers() {
@@ -30,6 +32,8 @@ public class MultipleChoiceQuestion implements Question {
 		// TODO Auto-generated method stub
 		return question;
 	}
+
+
 	
 
 
