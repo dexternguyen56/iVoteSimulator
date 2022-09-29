@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class Student {
 	private int ID;
-	private String Answer;
+	private ArrayList<String> Answer;
 	
 	
-	public Student(int id, String ans) {
+	public Student(int id) {
 		ID = id;
-		Answer = ans;
 	}
 	
 	
@@ -19,10 +18,10 @@ public class Student {
 	public void setID(int iD) {
 		ID = iD;
 	}
-	public String getAnswer() {
+	public ArrayList<String> getAnswer() {
 		return Answer;
 	}
-	public void setAnswer(String answer) {
+	public void setAnswer(ArrayList<String> answer) {
 		Answer = answer;
 	}
 	

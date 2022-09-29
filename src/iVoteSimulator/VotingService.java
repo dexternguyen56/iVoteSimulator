@@ -26,13 +26,11 @@ public class VotingService {
 	
 	
 	public void submitAnswers(Student student) {
-		if (mult_choice && submision.containsKey(student.getID())) {
-				ArrayList<String> temp = submision.get(student.getID());
-				temp.add(student.getAnswer());
-				submision.replace(student.getID(),temp);
+		if (submision.containsKey(student.getID())) {
+				submision.replace(student.getID(),student.getAnswer());
 			}
-			else {
-				submision.put(student.getID(), new ArrayList<String>(Arrays.asList(student.getAnswer())));
+		else {
+				submision.put(student.getID(), student.getAnswer());
 			}
 			
 		}
@@ -65,20 +63,31 @@ public class VotingService {
 		
 	}
 	
-	public void displayResult() {
+	public void displayResult(ArrayList<String> ans) {
+		
+		for(int i = 0; i < ans.size();i++) {
+			results.put(ans.get(i), 0);
+		}
+		
 		countResult();
 		
+		System.out.println("Final Resuls: ");
 		for (Map.Entry<String, Integer> entry : results.entrySet()) {
 		    System.out.println(entry.getKey()+" : "+entry.getValue());
 		}
+		System.out.println();
 	}
 		
 	
 	public void printSubmision() {
+		
+		System.out.println("\nFinal submission recorded: ");
 		for (Map.Entry<Integer, ArrayList<String>> entry : submision.entrySet()) {
 	
-			System.out.println(entry.getKey()+" : "+entry.getValue());
+			System.out.println("Student [" + entry.getKey()+"] : "+entry.getValue());
 		}
+		
+		System.out.println();
 	}
 
 	
