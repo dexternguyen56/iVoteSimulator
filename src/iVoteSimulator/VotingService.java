@@ -10,20 +10,30 @@ public class VotingService {
 	
 	private HashMap<String,Integer> results;
 	
-	private int max_student;
-	private int current_student;
-	
 	private Question question;
-	private boolean mult_choice;
 	
-	public VotingService(Question question) {
+	
+	public VotingService(Question ques) {
 		submision = new HashMap<Integer,ArrayList<String>>();
 		results = new HashMap<String,Integer>();
-		
-		mult_choice = question instanceof MultipleChoiceQuestion ? true : false;
+		question = ques;
+
 
 	}
 	
+	public ArrayList<String> possibleAnswers() {
+		int size = question.getAnswers().length;
+		char firstChar = question.getAnswers()[0].charAt(0);
+		
+		ArrayList<String> res = new ArrayList<String>();
+		for(int i= 0; i < size;i++) {
+			res.add( Character.toString( (char) ((int) firstChar + i)) );
+		}
+		return res;
+		//ArrayList of possible answer for the question
+	}
+	
+
 	
 	public void submitAnswers(Student student) {
 		if (submision.containsKey(student.getID())) {
@@ -73,21 +83,23 @@ public class VotingService {
 		
 		System.out.println("Final Resuls: ");
 		for (Map.Entry<String, Integer> entry : results.entrySet()) {
-		    System.out.println(entry.getKey()+" : "+entry.getValue());
+		    System.out.println("["+entry.getKey()+"] : "+entry.getValue());
 		}
+		
 		System.out.println();
+
 	}
 		
 	
 	public void printSubmision() {
 		
-		System.out.println("\nFinal submission recorded: ");
+		System.out.println("\nFinal submission to show that only the last submission of each student is recored: ");
 		for (Map.Entry<Integer, ArrayList<String>> entry : submision.entrySet()) {
 	
 			System.out.println("Student [" + entry.getKey()+"] : "+entry.getValue());
 		}
-		
-		System.out.println();
+	
+
 	}
 
 	

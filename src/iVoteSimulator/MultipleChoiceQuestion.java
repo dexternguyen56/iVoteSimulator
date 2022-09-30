@@ -1,37 +1,13 @@
 package iVoteSimulator;
 
-import java.util.ArrayList;
 
-public class MultipleChoiceQuestion implements Question {
-	
-	private String[] answers;
-	private String question;
-	
+public class MultipleChoiceQuestion extends Question {
+
 	public MultipleChoiceQuestion(int key) {
 		// TODO Auto-generated constructor stub
-		answers = m_answers[key];
-		question = m_question[key];
+		super(m_question[key], m_answers[key], m_answers[key].length);
+		
 	}
-
-	@Override
-	public String[] getAnswers() {
-		// TODO Auto-generated method stub
-		return answers;
-	}
-
-	@Override
-	public String[] getCorrect() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getQuestion() {
-		// TODO Auto-generated method stub
-		return question;
-	}
-	
-
 
 
 }

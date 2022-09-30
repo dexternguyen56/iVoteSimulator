@@ -1,40 +1,19 @@
 package iVoteSimulator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
-public class SingleChoiceQuestion implements Question {
+
+public class SingleChoiceQuestion extends Question {
 	
-	private String[] answers;
-	private String question;
 	
+	private static final int MAX = 1;
 	public SingleChoiceQuestion(int key) {
 		// TODO Auto-generated constructor stub
-		answers = s_answers[key];
-		question = s_question[key];
+		super(s_question[key],s_answers[key],MAX);
+		
 	}
 
 
-	@Override
-	public String[] getAnswers() {
-		// TODO Auto-generated method stub
-		return answers;
-	}
 
-	@Override
-	public String[] getCorrect() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getQuestion() {
-		// TODO Auto-generated method stub
-		return question;
-	}
-
-
-	
 
 
 
