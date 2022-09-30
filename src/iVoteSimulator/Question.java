@@ -2,8 +2,17 @@ package iVoteSimulator;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Tran Nguyen
+ * 
+ * Class question will hold the questions bank, question, and answers
+ *
+ */
+
 public class Question {
 
+	//Proteted questions bank
 	protected static final String[] s_question = {"Do you like dynamic backtracking problems?", "Do you like apple?"};
 	protected  static final String[][] s_answers = {{"1. Yes","2. No","3. Maybe"},{"1. Yes","2. No"}};
 	protected  static final String[] m_question = {"Which are your favorite tree traversals?", 
@@ -17,23 +26,21 @@ public class Question {
 	private String question;
 	private int maxAnswer;
 	
+	//Constructor for each questions
 	public Question(String ques, String [] answer, int max) {
-		// TODO Auto-generated constructor stub
 		answers = answer;
 		question = ques;
 		maxAnswer = max;
 	}
 
 
-
+	//Setters, getters, and display
 	public String[] getAnswers() {
-		// TODO Auto-generated method stub
 		return answers;
 	}
 
 
 	public String getQuestion() {
-		// TODO Auto-generated method stub
 		return question;
 	}
 	

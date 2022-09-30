@@ -2,6 +2,14 @@ package iVoteSimulator;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Tran Nguyen
+ * 
+ * Each Student will have an ID and answers 
+ *
+ */
+
 public class Student {
 	private int ID;
 	private ArrayList<String> Answer;

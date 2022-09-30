@@ -1,6 +1,13 @@
 package iVoteSimulator;
 
 import java.util.ArrayList;
+
+/**
+ * @author Tran Nguyen
+ *
+ * The main driver class for iVote Simulator
+ * 
+ */
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
@@ -15,8 +22,9 @@ public class SimulationDriver {
 		int typeOfQuestion;	  //Type of questions: 0-Single and 1-Multiple
 		int indexOfQuestion;  //Index of question from the questions bank
 		int id;				  //Student ID
-		final int MAX_STUDENT = 10;            //Max possible students
+		final int MAX_STUDENT = 100;            //Max possible students
 		final int MAX_NUMBER_OF_QUESTIONS = 2; //Max possible number of questions
+		String questionType;
 		
 		ArrayList<Student> students = new ArrayList<Student>(); // A list of students
 		Question question;										// Question 
@@ -37,9 +45,11 @@ public class SimulationDriver {
 		if(typeOfQuestion == 0) {
 			
 			question = new SingleChoiceQuestion(indexOfQuestion);
+			questionType = "Single Choice";
 		}
 		else {
 			question = new MultipleChoiceQuestion(indexOfQuestion);
+			questionType = "Multiple Choice";
 		}
 		
 		//Send the question to the voting center
@@ -63,6 +73,7 @@ public class SimulationDriver {
 		
 		//Print question and answers
 		printStars();
+		System.out.println("Question type: "+questionType+"\n");
 		System.out.println(question.getQuestion());
 		question.printAnswers();
 
@@ -73,7 +84,7 @@ public class SimulationDriver {
 		printStars();
 		System.out.println("Voting Center is accepting submission!");
 		System.out.println();
-		long endTime = System.currentTimeMillis() + 1;
+		long endTime = System.currentTimeMillis() + 5;
 		while (System.currentTimeMillis() < endTime) {
 			
 			//Get a random student and random answers
@@ -109,23 +120,24 @@ public class SimulationDriver {
 
 	}
 	
-
+	//Helper function to generate the answer for each student based on the question type
 	public static ArrayList<String> generateAns(Question question, ArrayList<String> ans){
 		
+		//Get the number of answers Single-1 and Multiple-(>1)
 		int numOfAns= (int)Math.floor(Math.random()*(question.getMaxAnswer())) + 1;
 		
-		
-		//System.out.println("Max random: " + numOfAns);
-
-		ArrayList<String> res = new ArrayList<String>();
+		ArrayList<String> result = new ArrayList<>();	//Final answer to return
+		HashSet<String> tempAns = new HashSet<String>(); //Temporary hash set to remove duplicated answers 
 		int temp;
-		
+
+		//Get random answer from the possible answers set
 		for(int i = 0; i < numOfAns;i++) {
-			
 			temp = (int)Math.floor(Math.random()*(ans.size()));
-			res.add(ans.get(temp));
+			tempAns.add(ans.get(temp));
 		}
-		return res;
+		result.addAll(tempAns);
+		
+		return result;
 	}
 	
 	
